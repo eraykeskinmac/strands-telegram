@@ -1,6 +1,7 @@
 # Strands Telegram
 
-[![PyPI version](https://badge.fury.io/py/strands-telegram.svg)](https://badge.fury.io/py/strands-telegram)
+[![PyPI version](https://img.shields.io/pypi/v/strands-telegram.svg)](https://pypi.org/project/strands-telegram/)
+[![Python versions](https://img.shields.io/pypi/pyversions/strands-telegram.svg)](https://pypi.org/project/strands-telegram/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 **Comprehensive Telegram Bot API integration for Strands Agents**
