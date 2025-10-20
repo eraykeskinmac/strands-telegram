@@ -289,7 +289,7 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 ## 🔗 Links
 
-- [Strands Agents Documentation](https://strandsagents.com)
+- [Strands Agents SDK](https://github.com/strands-agents/sdk-python)
 - [Telegram Bot API](https://core.telegram.org/bots/api)
 - [PyPI Package](https://pypi.org/project/strands-telegram/)
 - [GitHub Repository](https://github.com/eraykeskinmac/strands-telegram)
@@ -298,7 +298,7 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 - Create an issue on GitHub for bug reports
 - Join our community discussions for questions
-- Check the Strands Agents documentation for integration help
+- Check the Strands Agents SDK documentation for integration help
 
 ---
 
