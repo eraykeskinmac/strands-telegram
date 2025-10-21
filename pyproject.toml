@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "strands-telegram"
-version = "1.0.0"
+version = "1.0.1"
 description = "Comprehensive Telegram Bot API integration for Strands Agents"
 readme = "README.md"
 license = {text = "MIT"}
@@ -33,7 +33,7 @@ classifiers = [
 ]
 requires-python = ">=3.8"
 dependencies = [
-    "strands>=1.0.0",
+    "strands-agents>=1.0.0",
     "requests>=2.25.0",
 ]
 
