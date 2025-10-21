@@ -2,7 +2,7 @@
 Strands Telegram - Comprehensive Telegram Bot API integration for Strands Agents
 ==============================================================================
 
-This package provides a complete Telegram Bot API tool that integrates seamlessly 
+This package provides a complete Telegram Bot API tool that integrates seamlessly
 with Strands Agents, supporting all major Telegram Bot API operations.
 
 Key Features:
@@ -26,7 +26,7 @@ agent = Agent(tools=[telegram])
 # Send a message
 agent.tool.telegram(
     action="send_message",
-    chat_id="@username", 
+    chat_id="@username",
     text="Hello from Strands! 🚀"
 )
 ```
@@ -42,7 +42,7 @@ For more examples and documentation, visit:
 https://github.com/strands-agents/strands-telegram
 """
 
-from .telegram_tool import telegram
+from .telegram import telegram
 
 __version__ = "1.0.0"
 __author__ = "Strands Community"
@@ -50,18 +50,20 @@ __email__ = "community@strandsagents.com"
 
 __all__ = ["telegram"]
 
+
 # Package metadata
 def get_version():
     """Get package version."""
     return __version__
+
 
 def get_info():
     """Get package information."""
     return {
         "name": "strands-telegram",
         "version": __version__,
-        "description": "Comprehensive Telegram Bot API integration for Strands Agents",
+        "description": "Telegram Bot API integration for Strands Agents",
         "author": __author__,
         "email": __email__,
-        "url": "https://github.com/strands-agents/strands-telegram"
+        "url": "https://github.com/eraykeskinmac/strands-telegram",
     }

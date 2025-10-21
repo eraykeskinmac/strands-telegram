@@ -1,5 +1,5 @@
 """
-Comprehensive Telegram Bot API Tool for Strands Agents
+Telegram Bot API Tool for Strands Agents
 ======================================================
 
 This module provides a complete Telegram Bot API integration tool that supports
@@ -34,7 +34,7 @@ agent.tool.telegram(
 # Send photo with caption
 agent.tool.telegram(
     action="send_photo",
-    chat_id="123456789", 
+    chat_id="123456789",
     file_path="/path/to/photo.jpg",
     text="Check this out! 📸"
 )
@@ -124,7 +124,7 @@ def telegram(
     method: Optional[str] = None,
 ) -> Dict[str, Any]:
     """
-    Comprehensive Telegram Bot API tool with support for all major operations.
+    Telegram Bot API tool with support for all major operations.
 
     This tool provides complete access to the Telegram Bot API, enabling rich
     interactions including messaging, media sharing, group management, and more.
@@ -230,7 +230,6 @@ def telegram(
         {
             "status": "success" | "error",
             "content": [{"text": "Response message"}],
-            "telegram_response": {...}  # Full Telegram API response (on success)
         }
 
     Environment Variables:
@@ -301,7 +300,9 @@ def telegram(
             if reply_markup:
                 params["reply_markup"] = json.dumps(reply_markup)
             elif inline_keyboard:
-                params["reply_markup"] = json.dumps({"inline_keyboard": inline_keyboard})
+                params["reply_markup"] = json.dumps(
+                    {"inline_keyboard": inline_keyboard}
+                )
 
         elif action == "send_photo":
             api_method = "sendPhoto"
@@ -441,7 +442,9 @@ def telegram(
             if reply_markup:
                 params["reply_markup"] = json.dumps(reply_markup)
             elif inline_keyboard:
-                params["reply_markup"] = json.dumps({"inline_keyboard": inline_keyboard})
+                params["reply_markup"] = json.dumps(
+                    {"inline_keyboard": inline_keyboard}
+                )
 
         elif action == "delete_message":
             api_method = "deleteMessage"
@@ -626,7 +629,9 @@ def telegram(
                     ],
                 }
 
-            download_url = f"https://api.telegram.org/file/bot{bot_token}/{file_path_param}"
+            download_url = (
+                f"https://api.telegram.org/file/bot{bot_token}/{file_path_param}"
+            )
             response = requests.get(download_url)
 
             if response.status_code == 200:
@@ -651,7 +656,9 @@ def telegram(
 
         # Custom API call
         elif action == "custom":
-            api_method = method or (custom_params.get("method") if custom_params else None)
+            api_method = method or (
+                custom_params.get("method") if custom_params else None
+            )
             if not api_method:
                 return {
                     "status": "error",
@@ -686,10 +693,14 @@ def telegram(
         if response.status_code == 200:
             result = response.json()
             if result.get("ok"):
+                # Ensure result data is JSON-serializable
+                result_data = result.get("result", {})
                 return {
                     "status": "success",
-                    "content": [{"text": f"✅ {action} successful"}],
-                    "telegram_response": result["result"],
+                    "content": [
+                        {"text": f"✅ {action} successful"},
+                        {"json": json.loads(json.dumps(result_data))},
+                    ],
                 }
             else:
                 return {
@@ -699,8 +710,6 @@ def telegram(
                             "text": f"❌ Telegram API error: {result.get('description', 'Unknown error')}"
                         }
                     ],
-                    "error_code": result.get("error_code"),
-                    "telegram_response": result,
                 }
         else:
             return {
